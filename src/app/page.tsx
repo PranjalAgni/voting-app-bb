@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
+import va from "@vercel/analytics";
 import toast, { Toaster } from "react-hot-toast";
 
 export default function Home() {
@@ -11,7 +12,7 @@ export default function Home() {
     async function sendVote() {
       const response = await fetch("/api/vote");
       const data = await response.json();
-      console.log("Data: ", data);
+      va.track("Vote sent 📈", data?.data);
       toast.success("Thanks for voting! 🎉");
       setIsLoading(false);
     }
