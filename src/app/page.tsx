@@ -19,6 +19,7 @@ export default function Home() {
     }
 
     await sendVote();
+    fetch("https://api.val.town/v1/run/pranjaldotdev.incrementVotes");
   };
 
   return (
