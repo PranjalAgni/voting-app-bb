@@ -13,7 +13,7 @@ export default function Home() {
       const response = await fetch("/api/vote");
       const data = await response.json();
       va.track("Vote sent 📈", data?.data);
-      console.log(data?.data);
+      console.log("Voted ", data?.data);
       toast.success("Thanks for voting! 🎉");
       setIsLoading(false);
     }
